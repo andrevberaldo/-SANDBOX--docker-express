@@ -9,13 +9,21 @@ class CreateUserController {
         
         const createUserUseCase = new CreateUserUseCase();
 
-        const user = await createUserUseCase.execute({
-            username,
-            name,
-            password
-        });
+        try {
+            const user = await createUserUseCase.execute({
+                username,
+                name,
+                password
+            });
+    
+            return respnse.json(user);
 
-        return respnse.json(user);
+        } catch (error) {
+            return respnse.json({
+                status: "ERROR",
+                message: error.message
+            });
+        }
     }
 }
 

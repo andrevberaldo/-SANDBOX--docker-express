@@ -1,6 +1,5 @@
 import { client } from "../../prima/client";
 import { hash } from "bcryptjs";
-
 interface IUserRequest {
     name: string;
     password: string;

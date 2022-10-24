@@ -19,8 +19,9 @@ class CreateUserController {
             return respnse.json(user);
 
         } catch (error) {
+            console.log('---------', error)
             return respnse.json({
-                status: "ERROR",
+                status: 404,
                 message: error.message
             });
         }
